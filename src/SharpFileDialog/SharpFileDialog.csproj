@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.2.33" PrivateAssets="all" />
+    <PackageReference Include="NativeLibraryLoader" Version="1.0.11" />
+    <PackageReference Include="GtkSharp" Version="3.22.24.37" />
+  </ItemGroup>
+
+</Project>
