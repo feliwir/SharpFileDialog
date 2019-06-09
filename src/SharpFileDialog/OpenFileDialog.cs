@@ -8,13 +8,16 @@ namespace SharpFileDialog
     {
         private IOpenFileDialogBackend _backend;
 
-        public OpenFileDialog()
+        public OpenFileDialog(string title = null)
         {
-            if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                _backend = new SharpFileDialog.GtkFileDialog();
+                _backend = new Win.WinOpenFileDialog(title);
             }
-
+            else if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                _backend = new Gtk.GtkOpenFileDialog(title);
+            }
         }
 
         public void Dispose()
@@ -22,7 +25,7 @@ namespace SharpFileDialog
             _backend.Dispose();
         }
 
-        public void Open(string filter, Action<bool> callback)
+        public void Open(string filter, Action<DialogResult> callback)
         {
             _backend.Open(filter, callback);
         }

@@ -1,18 +1,18 @@
-using System;
+﻿using System;
 using Gtk;
 
 namespace SharpFileDialog.Gtk
 {
 
-    internal class GtkOpenFileDialog : IOpenFileDialogBackend
+    internal class GtkSaveFileDialog : ISaveFileDialogBackend
     {
         private FileChooserDialog _dialog;
 
-        public GtkOpenFileDialog(string title)
+        public GtkSaveFileDialog(string title)
         {
             _dialog = new FileChooserDialog(title,
                 null,
-                FileChooserAction.Open,
+                FileChooserAction.Save,
                 "Cancel",
                 ResponseType.Cancel,
                 "Ok",
@@ -24,7 +24,7 @@ namespace SharpFileDialog.Gtk
             _dialog.Destroy();
         }
 
-        public void Open(string filter, Action<DialogResult> callback)
+        public void Save(Action<DialogResult> callback)
         {
             _dialog.Run();
         }
