@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Gtk;
 
 namespace SharpFileDialog.Gtk
@@ -10,9 +11,9 @@ namespace SharpFileDialog.Gtk
 
         public GtkOpenFileDialog(string title)
         {
-            Application.Init();
+            GtkUtil.Initialize();
 
-            _dialog = new FileChooserDialog("title",
+            _dialog = new FileChooserDialog(title,
                 null,
                 FileChooserAction.Open,
                 "Cancel",
@@ -20,9 +21,8 @@ namespace SharpFileDialog.Gtk
                 "Ok",
                 ResponseType.Ok);
 
-            _dialog.ShowAll();
-
-            Application.Run();
+            while (Application.EventsPending ())
+                Application.RunIteration ();
         }
 
         public void Dispose()
@@ -32,7 +32,18 @@ namespace SharpFileDialog.Gtk
 
         public void Open(string filter, Action<DialogResult> callback)
         {
-            _dialog.Run();
+            if (_dialog.Run() == (int)ResponseType.Ok)
+            {
+                callback(new DialogResult()
+                {
+                    FileName = _dialog.Filename,
+                    Success = true
+                });
+            }
+            _dialog.Destroy();
+
+            while (Application.EventsPending ())
+                Application.RunIteration ();
         }
     }
 }
