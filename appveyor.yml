@@ -20,4 +20,4 @@ deploy:
   symbol_server: https://www.myget.org/F/feliwir/api/v2/package
   artifact: nugetPackages
   on:
-branch: master
+    branch: master
