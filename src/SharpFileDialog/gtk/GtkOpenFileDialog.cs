@@ -10,13 +10,19 @@ namespace SharpFileDialog.Gtk
 
         public GtkOpenFileDialog(string title)
         {
-            _dialog = new FileChooserDialog(title,
+            Application.Init();
+
+            _dialog = new FileChooserDialog("title",
                 null,
                 FileChooserAction.Open,
                 "Cancel",
                 ResponseType.Cancel,
                 "Ok",
                 ResponseType.Ok);
+
+            _dialog.ShowAll();
+
+            Application.Run();
         }
 
         public void Dispose()
