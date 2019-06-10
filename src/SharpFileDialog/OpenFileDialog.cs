@@ -12,7 +12,9 @@ namespace SharpFileDialog
         {
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                _backend = new Win.WinOpenFileDialog(title);
+                _backend = new Gtk.GtkOpenFileDialog(title);
+
+                //_backend = new Win.WinOpenFileDialog(title);
             }
             else if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
