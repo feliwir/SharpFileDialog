@@ -13,7 +13,7 @@ namespace SharpFileDialog.Sample
             Console.ReadKey();
 
             var saveDialog = new SaveFileDialog();
-            openDialog.Open(filter, result => SaveFile(result.FileName));
+            saveDialog.Save(result => SaveFile(result.FileName));
 
             Console.ReadKey();
         }
