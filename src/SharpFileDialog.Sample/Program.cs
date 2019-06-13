@@ -6,13 +6,13 @@ namespace SharpFileDialog.Sample
     {
         static void Main(string[] args)
         {
-            var openDialog = new OpenFileDialog();
-            var filter = "Text files(*.txt) | *.txt | All files(*.*) | *.*";
+            var openDialog = new OpenFileDialog("This is a test dialog");
+            var filter = "Text files(*.txt) | *.txt | Png files(*.png) | *.png | All files(*.*) | *.*";
             openDialog.Open(filter, result => OpenFile(result.FileName));
 
             Console.ReadKey();
 
-            var saveDialog = new SaveFileDialog();
+            var saveDialog = new SaveFileDialog("Another test for saving");
             saveDialog.Save(result => SaveFile(result.FileName));
 
             Console.ReadKey();

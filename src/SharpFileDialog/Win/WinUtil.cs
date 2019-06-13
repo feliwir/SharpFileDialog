@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SharpFileDialog.Win
+﻿namespace SharpFileDialog.Win
 {
     internal class WinUtil
     {
@@ -14,7 +10,8 @@ namespace SharpFileDialog.Win
         internal static string ConvertFilter(string filterString)
         {
             var filterArray = filterString.Split('|');
-            if (filterArray.Length < 2)
+
+            if (filterArray.Length < 2 || (filterArray.Length % 2 != 0))
                 return null;
 
             string result = "";

@@ -13,7 +13,9 @@ namespace SharpFileDialog
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                _backend = new Win.WinSaveFileDialog(title);
+                _backend = new Zenity.ZenitySaveFileDialog(title);
+
+                //_backend = new Win.WinSaveFileDialog(title);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {

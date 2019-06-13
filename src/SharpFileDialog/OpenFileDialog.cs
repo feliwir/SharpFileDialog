@@ -12,7 +12,7 @@ namespace SharpFileDialog
         {
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                _backend = new Gtk.GtkOpenFileDialog(title);
+                _backend = new Zenity.ZenityOpenFileDialog(title);
 
                 //_backend = new Win.WinOpenFileDialog(title);
             }
