@@ -5,7 +5,7 @@ namespace SharpFileDialog.Win
 {
     internal class WinOpenFileDialog : IOpenFileDialogBackend
     {
-        OpenFileName _openFileName; 
+        OpenFileName _openFileName;
 
         public WinOpenFileDialog(string title)
         {

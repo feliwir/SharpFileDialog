@@ -10,7 +10,7 @@ namespace SharpFileDialog.Gtk
 
         internal static void Initialize()
         {
-            if(_initialized)
+            if (_initialized)
                 return;
 
             Application.Init();

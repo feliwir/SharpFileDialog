@@ -19,9 +19,9 @@ namespace SharpFileDialog.Gtk
                 ResponseType.Cancel,
                 "Ok",
                 ResponseType.Ok);
-                
-            while (Application.EventsPending ())
-                Application.RunIteration ();
+
+            while (Application.EventsPending())
+                Application.RunIteration();
         }
 
         public void Dispose()
@@ -41,8 +41,8 @@ namespace SharpFileDialog.Gtk
             }
             _dialog.Destroy();
 
-            while (Application.EventsPending ())
-                Application.RunIteration ();
+            while (Application.EventsPending())
+                Application.RunIteration();
         }
     }
 }

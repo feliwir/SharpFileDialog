@@ -20,7 +20,7 @@ namespace SharpFileDialog.Zenity
 
             for (int i = 0; i < filterArray.Length; i += 2)
             {
-                string piece = filterArray[i].Trim() + "|" + filterArray[i+1].Trim();
+                string piece = filterArray[i].Trim() + "|" + filterArray[i + 1].Trim();
                 results.Add(piece);
             }
 

@@ -16,7 +16,7 @@
 
             string result = "";
 
-            foreach(var part in filterArray)
+            foreach (var part in filterArray)
             {
                 result += part.Trim();
                 result += "\0";
