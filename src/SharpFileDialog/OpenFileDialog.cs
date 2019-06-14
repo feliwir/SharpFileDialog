@@ -10,14 +10,13 @@ namespace SharpFileDialog
 
         public OpenFileDialog(string title = null)
         {
-            if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                _backend = new Zenity.ZenityOpenFileDialog(title);
-
-                //_backend = new Win.WinOpenFileDialog(title);
+                _backend = new Win.WinOpenFileDialog(title);
             }
-            else if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
+                // _backend = new Zenity.ZenityOpenFileDialog(title);
                 _backend = new Gtk.GtkOpenFileDialog(title);
             }
         }

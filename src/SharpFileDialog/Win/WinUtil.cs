@@ -5,7 +5,7 @@
         /// <summary>
         /// Converts our filter string to a winapi filter string
         /// </summary>
-        /// <param name="filter">The filter string as expected by SharpFileDialog</param>
+        /// <param name="filterString">The filter string as expected by SharpFileDialog</param>
         /// <returns></returns>
         internal static string ConvertFilter(string filterString)
         {
@@ -16,7 +16,7 @@
 
             string result = "";
 
-            foreach(var part in filterArray)
+            foreach (var part in filterArray)
             {
                 result += part.Trim();
                 result += "\0";

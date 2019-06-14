@@ -20,8 +20,9 @@ namespace SharpFileDialog.Win
         {
         }
 
-        public void Save(Action<DialogResult> callback)
+        public void Save(string filter, Action<DialogResult> callback)
         {
+            _openFileName.filter = WinUtil.ConvertFilter(filter);
             bool success = WinInterop.GetSaveFileName(_openFileName);
             callback(new DialogResult()
             {

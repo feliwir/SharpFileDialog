@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace SharpFileDialog
 {
@@ -13,12 +11,12 @@ namespace SharpFileDialog
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                _backend = new Zenity.ZenitySaveFileDialog(title);
 
-                //_backend = new Win.WinSaveFileDialog(title);
+                _backend = new Win.WinSaveFileDialog(title);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
+                // _backend = new Zenity.ZenitySaveFileDialog(title);
                 _backend = new Gtk.GtkSaveFileDialog(title);
             }
 
@@ -29,9 +27,9 @@ namespace SharpFileDialog
             _backend.Dispose();
         }
 
-        public void Save(Action<DialogResult> callback)
+        public void Save(string filter, Action<DialogResult> callback)
         {
-            _backend.Save(callback);
+            _backend.Save(filter, callback);
         }
     }
 }
