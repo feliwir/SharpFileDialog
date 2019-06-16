@@ -13,7 +13,8 @@ namespace SharpFileDialog.Sample
             Console.ReadKey();
 
             var saveDialog = new SaveFileDialog("Another test for saving");
-            saveDialog.Save(result => SaveFile(result.FileName));
+            filter = "Text files(*.txt) | *.txt | Png files(*.png) | *.png | All files(*.*) | *.*";
+            saveDialog.Save(filter, result => SaveFile(result.FileName));
 
             Console.ReadKey();
         }

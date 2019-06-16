@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace SharpFileDialog
 {
@@ -34,9 +32,9 @@ namespace SharpFileDialog
             _backend.Dispose();
         }
 
-        public void Save(Action<DialogResult> callback)
+        public void Save(string filter, Action<DialogResult> callback)
         {
-            _backend.Save(callback);
+            _backend.Save(filter, callback);
         }
     }
 }

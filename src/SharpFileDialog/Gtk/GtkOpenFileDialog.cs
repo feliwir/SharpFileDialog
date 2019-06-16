@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Gtk;
 
 namespace SharpFileDialog.Gtk
@@ -30,8 +29,17 @@ namespace SharpFileDialog.Gtk
             _dialog.Destroy();
         }
 
-        public void Open(string filter, Action<DialogResult> callback)
+        public void Open(string filterString, Action<DialogResult> callback)
         {
+            foreach (var item in GtkUtil.ConvertFilter(filterString))
+            {
+                var filter = new FileFilter();
+                filter.Name = item.Name;
+                filter.AddPattern(item.Pattern);
+
+                _dialog.AddFilter(filter);
+            }
+
             if (_dialog.Run() == (int)ResponseType.Ok)
             {
                 callback(new DialogResult()

@@ -7,7 +7,7 @@ namespace SharpFileDialog.Zenity
         /// <summary>
         /// Converts our filter string to a zenity filter string
         /// </summary>
-        /// <param name="filter">The filter string as expected by SharpFileDialog</param>
+        /// <param name="filterString">The filter string as expected by SharpFileDialog</param>
         /// <returns></returns>
         internal static List<string> ConvertFilter(string filterString)
         {
