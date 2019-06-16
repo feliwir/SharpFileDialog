@@ -16,7 +16,7 @@ namespace SharpFileDialog.Zenity
             _process.StartInfo.Arguments = "--file-selection";
             _process.StartInfo.UseShellExecute = false;
             _process.StartInfo.RedirectStandardOutput = true;
-            _process.StartInfo.CreateNoWindow = true;
+            //_process.StartInfo.CreateNoWindow = true;
 
             if (title != null)
             {
@@ -31,7 +31,7 @@ namespace SharpFileDialog.Zenity
         public void Open(string filter, Action<DialogResult> callback)
         {
             var filters = ZenityUtil.ConvertFilter(filter);
-            foreach(var sFilter in filters)
+            foreach (var sFilter in filters)
             {
                 _process.StartInfo.Arguments += " --file-filter=\"" + sFilter + "\"";
             }
