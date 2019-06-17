@@ -35,6 +35,11 @@ namespace SharpFileDialog.Zenity
 
             _process.OutputDataReceived += (sender, data) =>
             {
+                if (data.Data == null)
+                {
+                    return;
+                }
+
                 callback(new DialogResult()
                 {
                     FileName = data.Data,
@@ -42,6 +47,7 @@ namespace SharpFileDialog.Zenity
                 });
             };
             _process.Start();
+            _process.BeginOutputReadLine();
         }
     }
 }
