@@ -4,6 +4,6 @@ namespace SharpFileDialog
 {
     interface ISaveFileDialogBackend : IDisposable
     {
-        void Save(string filter, Action<DialogResult> callback);
+        void Save(Action<DialogResult> callback, string filter);
     }
 }

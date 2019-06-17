@@ -25,7 +25,7 @@ namespace SharpFileDialog.Zenity
         {
         }
 
-        public void Save(string filter, Action<DialogResult> callback)
+        public void Save(Action<DialogResult> callback, string filter)
         {
             var filters = ZenityUtil.ConvertFilter(filter);
             foreach (var sFilter in filters)

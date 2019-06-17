@@ -29,7 +29,7 @@ namespace SharpFileDialog.Gtk
             _dialog.Destroy();
         }
 
-        public void Save(string filterString, Action<DialogResult> callback)
+        public void Save(Action<DialogResult> callback, string filterString)
         {
             foreach (var item in GtkUtil.ConvertFilter(filterString))
             {

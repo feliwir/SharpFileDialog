@@ -8,13 +8,13 @@ namespace SharpFileDialog.Sample
         {
             var openDialog = new OpenFileDialog("This is a test dialog");
             var filter = "Text files(*.txt) | *.txt | Png files(*.png) | *.png | All files(*.*) | *.*";
-            openDialog.Open(filter, result => OpenFile(result.FileName));
+            openDialog.Open(result => OpenFile(result.FileName), filter);
 
             Console.ReadKey();
 
             var saveDialog = new SaveFileDialog("Another test for saving");
             filter = "Text files(*.txt) | *.txt | Png files(*.png) | *.png | All files(*.*) | *.*";
-            saveDialog.Save(filter, result => SaveFile(result.FileName));
+            saveDialog.Save(result => SaveFile(result.FileName), filter);
 
             Console.ReadKey();
         }
