@@ -6,6 +6,17 @@ namespace SharpFileDialog.Win
     class WinSaveFileDialog : ISaveFileDialogBackend
     {
         OpenFileName _openFileName;
+        public string DefaultFileName
+        {
+            get
+            {
+                return DefaultFileName;
+            }
+            set
+            {
+                _openFileName.file = value;
+            }
+        }
 
         public WinSaveFileDialog(string title)
         {

@@ -6,6 +6,17 @@ namespace SharpFileDialog
     public class SaveFileDialog : ISaveFileDialogBackend
     {
         private ISaveFileDialogBackend _backend;
+        public string DefaultFileName
+        {
+            get
+            {
+                return _backend.DefaultFileName;
+            }
+            set
+            {
+                _backend.DefaultFileName = value;
+            }
+        }
 
         public SaveFileDialog(string title = null)
         {
@@ -17,14 +28,13 @@ namespace SharpFileDialog
             {
                 try
                 {
-                    _backend = new Gtk.GtkSaveFileDialog(title);
+                    _backend = new Zenity.ZenitySaveFileDialog(title);
                 }
                 catch
                 {
-                    _backend = new Zenity.ZenitySaveFileDialog(title);
+                    _backend = new Gtk.GtkSaveFileDialog(title);
                 }
             }
-
         }
 
         public void Dispose()

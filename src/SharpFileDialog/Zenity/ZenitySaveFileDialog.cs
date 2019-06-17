@@ -7,12 +7,24 @@ namespace SharpFileDialog.Zenity
     {
         string _title;
         Process _process;
+        public string DefaultFileName
+        {
+            get
+            {
+                return DefaultFileName;
+            }
+            set
+            {
+                _process.StartInfo.Arguments += $" --filename=\"{value}\"";
+            }
+        }
 
         public ZenitySaveFileDialog(string title)
         {
             _title = title;
             _process = new Process();
             _process.StartInfo.FileName = "zenity";
+            _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.Arguments = "--file-selection --save --confirm-overwrite";
 
             if (title != null)
