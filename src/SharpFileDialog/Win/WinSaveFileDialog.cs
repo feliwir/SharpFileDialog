@@ -8,10 +8,6 @@ namespace SharpFileDialog.Win
         OpenFileName _openFileName;
         public string DefaultFileName
         {
-            get
-            {
-                return DefaultFileName;
-            }
             set
             {
                 _openFileName.file = value;

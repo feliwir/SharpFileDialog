@@ -9,10 +9,6 @@ namespace SharpFileDialog.Zenity
         Process _process;
         public string DefaultFileName
         {
-            get
-            {
-                return DefaultFileName;
-            }
             set
             {
                 _process.StartInfo.Arguments += $" --filename=\"{value}\"";

@@ -8,10 +8,6 @@ namespace SharpFileDialog
         private ISaveFileDialogBackend _backend;
         public string DefaultFileName
         {
-            get
-            {
-                return _backend.DefaultFileName;
-            }
             set
             {
                 _backend.DefaultFileName = value;
