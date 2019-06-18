@@ -8,6 +8,14 @@ namespace SharpFileDialog.Gtk
     {
         private FileChooserDialog _dialog;
 
+        public string DefaultFileName
+        {
+            set
+            {
+                _dialog.CurrentName = value;
+            }
+        }
+
         public GtkSaveFileDialog(string title)
         {
             GtkUtil.Initialize();
@@ -29,7 +37,7 @@ namespace SharpFileDialog.Gtk
             _dialog.Destroy();
         }
 
-        public void Save(string filterString, Action<DialogResult> callback)
+        public void Save(Action<DialogResult> callback, string filterString)
         {
             foreach (var item in GtkUtil.ConvertFilter(filterString))
             {

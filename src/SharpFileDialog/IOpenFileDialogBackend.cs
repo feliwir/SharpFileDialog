@@ -4,6 +4,6 @@ namespace SharpFileDialog
 {
     internal interface IOpenFileDialogBackend : IDisposable
     {
-        void Open(string filter, Action<DialogResult> callback);
+        void Open(Action<DialogResult> callback, string filter);
     }
 }

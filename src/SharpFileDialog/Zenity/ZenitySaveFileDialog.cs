@@ -7,12 +7,20 @@ namespace SharpFileDialog.Zenity
     {
         string _title;
         Process _process;
+        public string DefaultFileName
+        {
+            set
+            {
+                _process.StartInfo.Arguments += $" --filename=\"{value}\"";
+            }
+        }
 
         public ZenitySaveFileDialog(string title)
         {
             _title = title;
             _process = new Process();
             _process.StartInfo.FileName = "zenity";
+            _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.Arguments = "--file-selection --save --confirm-overwrite";
 
             if (title != null)
@@ -25,7 +33,7 @@ namespace SharpFileDialog.Zenity
         {
         }
 
-        public void Save(string filter, Action<DialogResult> callback)
+        public void Save(Action<DialogResult> callback, string filter)
         {
             var filters = ZenityUtil.ConvertFilter(filter);
             foreach (var sFilter in filters)

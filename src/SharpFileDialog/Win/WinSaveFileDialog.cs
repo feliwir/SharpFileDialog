@@ -6,6 +6,13 @@ namespace SharpFileDialog.Win
     class WinSaveFileDialog : ISaveFileDialogBackend
     {
         OpenFileName _openFileName;
+        public string DefaultFileName
+        {
+            set
+            {
+                _openFileName.file = value;
+            }
+        }
 
         public WinSaveFileDialog(string title)
         {
@@ -20,7 +27,7 @@ namespace SharpFileDialog.Win
         {
         }
 
-        public void Save(string filter, Action<DialogResult> callback)
+        public void Save(Action<DialogResult> callback, string filter)
         {
             _openFileName.filter = WinUtil.ConvertFilter(filter);
             bool success = WinInterop.GetSaveFileName(_openFileName);

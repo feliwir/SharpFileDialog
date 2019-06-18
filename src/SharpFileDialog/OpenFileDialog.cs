@@ -32,9 +32,9 @@ namespace SharpFileDialog
             _backend.Dispose();
         }
 
-        public void Open(string filter, Action<DialogResult> callback)
+        public void Open(Action<DialogResult> callback, string filter = "All files(*.*) | *.*")
         {
-            _backend.Open(filter, callback);
+            _backend.Open(callback, filter);
         }
     }
 }
