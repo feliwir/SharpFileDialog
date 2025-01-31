@@ -6,7 +6,7 @@ namespace SharpFileDialog.Zenity
     class ZenityDirectoryDialog : IDirectoryDialogBackend
     {
         string _title;
-        Process _process;
+        readonly Process _process;
 
         public ZenityDirectoryDialog(string title)
         {
@@ -36,7 +36,7 @@ namespace SharpFileDialog.Zenity
                     return;
                 }
 
-                callback(new DialogResult()
+                callback(new DialogResult
                 {
                     FileName = data.Data,
                     Success = true

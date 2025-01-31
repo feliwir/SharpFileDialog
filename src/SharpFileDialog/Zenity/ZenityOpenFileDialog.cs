@@ -6,7 +6,7 @@ namespace SharpFileDialog.Zenity
     class ZenityOpenFileDialog : IOpenFileDialogBackend
     {
         string _title;
-        Process _process;
+        readonly Process _process;
 
         public ZenityOpenFileDialog(string title)
         {
@@ -43,7 +43,7 @@ namespace SharpFileDialog.Zenity
                     return;
                 }
 
-                callback(new DialogResult()
+                callback(new DialogResult
                 {
                     FileName = data.Data,
                     Success = true

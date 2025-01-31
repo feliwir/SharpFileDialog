@@ -3,10 +3,9 @@ using Gtk;
 
 namespace SharpFileDialog.Gtk
 {
-
     internal class GtkOpenFileDialog : IOpenFileDialogBackend
     {
-        private FileChooserDialog _dialog;
+        private readonly FileChooserDialog _dialog;
 
         public GtkOpenFileDialog(string title)
         {
@@ -42,7 +41,7 @@ namespace SharpFileDialog.Gtk
 
             if (_dialog.Run() == (int)ResponseType.Ok)
             {
-                callback(new DialogResult()
+                callback(new DialogResult
                 {
                     FileName = _dialog.Filename,
                     Success = true

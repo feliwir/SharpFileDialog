@@ -5,7 +5,7 @@ namespace SharpFileDialog.Win
 {
     internal class WinOpenFileDialog : IOpenFileDialogBackend
     {
-        OpenFileName _openFileName;
+        readonly OpenFileName _openFileName;
 
         public WinOpenFileDialog(string title)
         {
@@ -24,12 +24,11 @@ namespace SharpFileDialog.Win
         {
             _openFileName.filter = WinUtil.ConvertFilter(filter);
             bool success = WinInterop.GetOpenFileName(_openFileName);
-            callback(new DialogResult()
+            callback(new DialogResult
             {
                 FileName = _openFileName.file,
                 Success = success
             });
-
         }
     }
 }

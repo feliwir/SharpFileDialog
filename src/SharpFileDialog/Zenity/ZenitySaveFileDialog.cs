@@ -6,13 +6,10 @@ namespace SharpFileDialog.Zenity
     class ZenitySaveFileDialog : ISaveFileDialogBackend
     {
         string _title;
-        Process _process;
+        readonly Process _process;
         public string DefaultFileName
         {
-            set
-            {
-                _process.StartInfo.Arguments += $" --filename=\"{value}\"";
-            }
+            set => _process.StartInfo.Arguments += $" --filename=\"{value}\"";
         }
 
         public ZenitySaveFileDialog(string title)
@@ -48,7 +45,7 @@ namespace SharpFileDialog.Zenity
                     return;
                 }
 
-                callback(new DialogResult()
+                callback(new DialogResult
                 {
                     FileName = data.Data,
                     Success = true

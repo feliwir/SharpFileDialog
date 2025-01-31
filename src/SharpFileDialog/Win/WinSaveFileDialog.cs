@@ -5,13 +5,10 @@ namespace SharpFileDialog.Win
 {
     class WinSaveFileDialog : ISaveFileDialogBackend
     {
-        OpenFileName _openFileName;
+        readonly OpenFileName _openFileName;
         public string DefaultFileName
         {
-            set
-            {
-                _openFileName.file = value;
-            }
+            set => _openFileName.file = value;
         }
 
         public WinSaveFileDialog(string title)
@@ -31,7 +28,7 @@ namespace SharpFileDialog.Win
         {
             _openFileName.filter = WinUtil.ConvertFilter(filter);
             bool success = WinInterop.GetSaveFileName(_openFileName);
-            callback(new DialogResult()
+            callback(new DialogResult
             {
                 FileName = _openFileName.file,
                 Success = success
