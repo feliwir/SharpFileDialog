@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <DocumentationFile>bin/SharpAudio.xml</DocumentationFile>
+    <DocumentationFile>bin/$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

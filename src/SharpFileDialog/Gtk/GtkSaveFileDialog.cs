@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Gtk;
 
 namespace SharpFileDialog.Gtk
 {
     internal class GtkSaveFileDialog : ISaveFileDialogBackend
     {
-        private FileChooserDialog _dialog;
+        private readonly FileChooserDialog _dialog;
 
         public string DefaultFileName
         {
-            set
-            {
-                _dialog.CurrentName = value;
-            }
+            set => _dialog.CurrentName = value;
         }
 
         public GtkSaveFileDialog(string title)
@@ -50,7 +46,7 @@ namespace SharpFileDialog.Gtk
 
             if (_dialog.Run() == (int)ResponseType.Ok)
             {
-                callback(new DialogResult()
+                callback(new DialogResult
                 {
                     FileName = _dialog.Filename,
                     Success = true

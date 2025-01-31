@@ -9,7 +9,7 @@ namespace SharpFileDialog.Gtk
         public string Pattern;
     }
 
-    static internal class GtkUtil
+    internal static class GtkUtil
     {
         static bool _initialized = false;
 

@@ -2,7 +2,7 @@
 
 namespace SharpFileDialog
 {
-    interface ISaveFileDialogBackend : IDisposable
+    internal interface ISaveFileDialogBackend : IDisposable
     {
         string DefaultFileName { set; }
         void Save(Action<DialogResult> callback, string filter);
